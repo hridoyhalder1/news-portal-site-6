@@ -81,7 +81,7 @@ const displayNewsId = (news) => {
               <img class="img-size w-25 rounded-circle" src="${news.author.img}" alt="">
               </div>
               <div>
-              <p class="m-0">${news.author.name ? news.author.name : 'N/a'}</p>
+              <p class="m-0">${news.author.name ? news.author.name : 'Not found'}</p>
               <p>${news.author.published_date ? news.author.published_date : "not found published date"}</p>
               </div>
         </div>
@@ -135,7 +135,7 @@ const displayDetails = (datas) => {
             <img class=" rounded-circle w-75" src="${datas.author.img}" alt="">
             </div>
             <div>
-            <p class="m-0">${datas.author.name ? datas.author.name : 'N/a'}</p>
+            <p class="m-0">${datas.author.name ? datas.author.name : 'Not Found'}</p>
             <p>${datas.author.published_date ? datas.author.published_date : "not found published date"}</p>
             </div>
             <div class="rating">
