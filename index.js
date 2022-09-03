@@ -78,7 +78,7 @@ const displayNewsId = (news) => {
         <div class="d-flex gap-4 justify-content-between align-items-center">
         <div class="d-flex gap-4">
               <div>
-              <img class="img-size rounded-circle" src="${news.author.img}" alt="">
+              <img class="img-size w-25 rounded-circle" src="${news.author.img}" alt="">
               </div>
               <div>
               <p class="m-0">${news.author.name ? news.author.name : 'N/a'}</p>
@@ -86,16 +86,15 @@ const displayNewsId = (news) => {
               </div>
         </div>
         <div>
-        <p><i class="fa-solid fa-eye text-primary"></i> ${news.total_view ? news.total_view : '0'}M</p>
+        <p><i class="fa-solid fa-eye text-warningprimary"></i> ${news.total_view ? news.total_view : '0'}M</p>
         </div>
         <div>
             <div>
-              <p><i class="fa-solid fa-star text-primary"></i>  ${news.rating.number} </p>
-            </div>
-           
+              <p><i class="fa-solid fa-star text-warning"></i>  ${news.rating.number} </p>
+            </div>          
         </div>
         <div>
-        <i class="fa-sharp fa-solid fa-arrow-right text-primary fs-2"></i>
+        <i class="fa-sharp fa-solid fa-arrow-right text-warning fs-2"></i>
         </div>
   
     </div>
@@ -116,39 +115,36 @@ const loadDetails = (news_id) => {
             const error2 = document.getElementById('error-message');
             error2.classList.remove('d-none')
         })
-
 }
 const displayDetails = (datas) => {
     const newsModalShow = document.getElementById('news-modal-show');
     newsModalShow.innerHTML = `
    
    <div class="modal-content">
-   <div class="modal-header">
-  
+   <div class="modal-header"> 
      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
    </div>
    <div class="modal-body">
    <img class="w-full img-fluid" src="${datas.image_url}" alt=""> 
    <h5>${datas.title}</h5>
-   <p>${datas.details.slice(0, 120) + "....."}</p>
+   <p>${datas.details.slice(0, 180) + "....."}</p>
    <div class="d-flex">
          <div class="author">
             <div class="d-flex align-items-center gap-5">
             <div>
-            <img class="img-size rounded-circle" src="${datas.author.img}" alt="">
+            <img class=" rounded-circle w-75" src="${datas.author.img}" alt="">
             </div>
             <div>
             <p class="m-0">${datas.author.name ? datas.author.name : 'N/a'}</p>
             <p>${datas.author.published_date ? datas.author.published_date : "not found published date"}</p>
             </div>
             <div class="rating">
-            <p><i class="fa-solid fa-star text-primary"></i>  ${datas.rating.number} </p>
+            <p><i class="fa-solid fa-star text-warning"></i>  ${datas.rating.number} </p>
             </div>
             <div>
         <p><i class="fa-solid fa-eye text-primary"></i> ${datas.total_view ? datas.total_view : '0'}M</p>
         </div>
-      </div>
-      
+      </div>      
      </div>
    </div>
    </div>
