@@ -9,7 +9,9 @@ const displayCategory = categorys =>{
     categorys.forEach(category =>{
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-            <div class="col">${category.category_name}</div>
+            <div id="category" class="col">
+            <a href="#" class="text-decoration-none">${category.category_name}</a>
+            </div>
         `;
         categoryContainer.appendChild(categoryDiv);
     })
@@ -28,7 +30,7 @@ const loadCards = async() =>{
 const displayCards = cards =>{
     const cardsContainer = document.getElementById('cards-container');
     cards.forEach(card =>{
-        console.log(card);
+        // console.log(card);
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col');
         cardDiv.innerHTML =`
@@ -43,7 +45,9 @@ const displayCards = cards =>{
                     <img src ="${card.author.img}" class=" w-25 rounded-circle">
                     <h6 class="card-title">${card.author.name}</h6>
                     <p>Total View: ${card.total_view}</p>
-                    <button class="bg-primary px-3 text-white ">Details</button>
+
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Details</button>
                 </div>
             </div>
         </div>
@@ -52,3 +56,34 @@ const displayCards = cards =>{
     })
 }
 loadCards();
+
+// spinner
+    
+
+
+
+
+
+
+
+
+
+
+
+// modal 
+const loadModal = async() =>{
+    const url = `https://openapi.programming-hero.com/api/news/category/01`;
+    const res = await fetch(url);
+    const data  = await res.json();
+    displayModal(data.data);
+}
+const displayModal = modal =>{
+    console.log(modal);
+    const modalTitle= document.getElementById('exampleModalLabel');
+    modalTitle.innerText = modal.details;
+    const modalDetail = document.getElementById('modal-detail');
+    modalDetail.innerHTML = `
+        <p>${modal.details}</p>
+    `;
+}
+loadModal();
