@@ -8,7 +8,7 @@ const loadNewsApi = () => {
             document.getElementById('news-cetagori').style.display = 'none';
             document.getElementById('spinner').style.display = 'none';
             const error2 = document.getElementById('error-message');
-            error2.classList.remove('d-none')
+            error2.classList.remove('d-none');
         })
 }
 const displayNews = (cetagories) => {
